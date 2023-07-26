@@ -17,15 +17,19 @@ const MessageSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  read: {
+    type: Boolean,
+    default: false
+  },
+  deleted: {
+    type: Boolean,
+    default: false
   }
-//   },
-//   calories: {
-//     type: Number,
-//     default: 0,
-//     validate(value) {
-//       if (value < 0) throw new Error("Negative calories aren't real.");
-//     },
-//   },
 });
 
 const Message = mongoose.model("Message", MessageSchema);
